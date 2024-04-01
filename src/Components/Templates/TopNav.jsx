@@ -3,6 +3,7 @@
 import axios from "../../Utils/Axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import noImage from "../../../public/noImage.jpg";
 
 const TopNav = () => {
   const [query, setQuery] = useState("");
@@ -46,7 +47,17 @@ const TopNav = () => {
               key={i}
               className="hover:text-black hover:bg-zinc-300 duration-300 w-[100%] p-10 flex justify-start items-center border-b-2 border-zinc-100 text-zinc-600 font-semibold"
             >
-              <img src="" alt="" />
+              <img
+                className="w-[10vh] h-[10vh] object-cover rounded-md mr-5"
+                src={
+                  s.backdrop_path || s.profile_path
+                    ? `https://image.tmdb.org/t/p/original/${
+                        s.backdrop_path || s.profile_path
+                      }`
+                    : noImage
+                }
+                alt="image"
+              />
               <span>
                 {s.name || s.original_name || s.title || s.original_title}
               </span>
