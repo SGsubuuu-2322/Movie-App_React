@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 
 const TopNav = () => {
   const [query, setQuery] = useState("");
+  const [searches, setsearches] = useState(null);
 
   const getSearches = async () => {
     try {
-      const data = await axios.get(`/search/multi?query=${query}`);
-      console.log(data);
+      const { data } = await axios.get(`/search/multi?query=${query}`);
+      setsearches(data.results);
+      // console.log(data.results);
     } catch (err) {
       console.log("Error: ", err);
     }
@@ -38,10 +40,18 @@ const TopNav = () => {
       )}
 
       <div className="bg-zinc-200 w-[50%] max-h-[50vh] absolute top-[90%] overflow-auto">
-        <Link className="hover:text-black hover:bg-zinc-300 duration-300 w-[100%] p-10 flex justify-start items-center border-b-2 border-zinc-100 text-zinc-600 font-semibold">
-          <img src="" alt="" />
-          <span>Hello Everyone....</span>
-        </Link>
+        {searches &&
+          searches.map((s, i) => (
+            <Link
+              key={i}
+              className="hover:text-black hover:bg-zinc-300 duration-300 w-[100%] p-10 flex justify-start items-center border-b-2 border-zinc-100 text-zinc-600 font-semibold"
+            >
+              <img src="" alt="" />
+              <span>
+                {s.name || s.original_name || s.title || s.original_title}
+              </span>
+            </Link>
+          ))}
       </div>
     </div>
   );
