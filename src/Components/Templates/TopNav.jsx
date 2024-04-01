@@ -1,10 +1,25 @@
 // import React from 'react'
 
-import { useState } from "react";
+import axios from "../../Utils/Axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const TopNav = () => {
   const [query, setQuery] = useState("");
+
+  const getSearches = async () => {
+    try {
+      const data = await axios.get(`/search/multi?query=${query}`);
+      console.log(data);
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
+  useEffect(() => {
+    getSearches();
+  }, [query]);
+
   return (
     <div className="relative w-full h-[10vh] flex justify-start items-center">
       <i className="text-3xl text-zinc-400 ri-search-line"></i>
