@@ -3,7 +3,7 @@
 import axios from "../../Utils/Axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import noImage from "../../../public/noImage.jpg";
+import noImage from "/noImage.jpg";
 
 const TopNav = () => {
   const [query, setQuery] = useState("");
