@@ -48,7 +48,7 @@ const TopNav = () => {
               className="hover:text-black hover:bg-zinc-300 duration-300 w-[100%] p-10 flex justify-start items-center border-b-2 border-zinc-100 text-zinc-600 font-semibold"
             >
               <img
-                className="w-[10vh] h-[10vh] object-cover rounded-md mr-5"
+                className="w-[10vh] h-[10vh] object-cover rounded-md mr-5 shadow-xl"
                 src={
                   s.backdrop_path || s.profile_path
                     ? `https://image.tmdb.org/t/p/original/${
