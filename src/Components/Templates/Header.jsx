@@ -13,7 +13,7 @@ const Header = ({ wallpaper }) => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-full h-[50vh] flex flex-col justify-end p-5"
+      className="w-full h-[50vh] flex flex-col justify-end items-start p-5"
     >
       <h1 className="text-5xl font-black text-white w-[70%]">
         {" "}
@@ -22,10 +22,19 @@ const Header = ({ wallpaper }) => {
           wallpaper.title ||
           wallpaper.original_title}
       </h1>
-      <p className="text-white w-[70%] mt-3">
+      <p className="text-white w-[70%] mt-3 mb-3">
         {wallpaper.overview.slice(0, 200)}...
         <Link className="text-blue-600">more</Link>
       </p>
+      <p className="text-white">
+        <i className="text-yellow-500 ri-megaphone-fill"></i>
+        {wallpaper.release_date}
+        <i className="text-yellow-500 ml-5 ri-album-fill"></i>
+        {wallpaper.media_type.toUpperCase()}
+      </p>
+      <Link className="bg-[#6556cd] mt-5 text-white rounded-lg p-2">
+        Watch Trailer
+      </Link>
     </div>
   );
 };
