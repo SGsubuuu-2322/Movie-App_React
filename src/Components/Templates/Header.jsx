@@ -9,7 +9,7 @@ const Header = ({ wallpaper }) => {
         background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/original/${
           wallpaper.backdrop_path || wallpaper.profile_path
         })`,
-        backgroundPosition: "center",
+        backgroundPosition: "top 5%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
@@ -28,7 +28,7 @@ const Header = ({ wallpaper }) => {
       </p>
       <p className="text-white">
         <i className="text-yellow-500 ri-megaphone-fill"></i>
-        {wallpaper.release_date}
+        {wallpaper.release_date || "No Information"}
         <i className="text-yellow-500 ml-5 ri-album-fill"></i>
         {wallpaper.media_type.toUpperCase()}
       </p>
