@@ -1,11 +1,14 @@
 // import React from 'react'
 
+import Dropdown from "./Dropdown";
+
 const HorizentalCards = ({ data }) => {
   //   console.log(data);
   return (
     <div className="w-full  p-5">
       <div className="mb-5">
         <h1 className="text-3xl text-zinc-400 font-bold">Trending</h1>
+        <Dropdown />
       </div>
 
       <div className="w-[100%] flex overflow-y-hidden">
