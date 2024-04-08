@@ -12,6 +12,7 @@ const Home = () => {
 
   const [wallpaper, setWallpaper] = useState(null);
   const [trending, setTrending] = useState(null);
+  const [category, setcategory] = useState("all");
 
   const getWallpaper = async () => {
     try {
@@ -27,7 +28,7 @@ const Home = () => {
 
   const getTrending = async () => {
     try {
-      const { data } = await axios.get(`/trending/all/day`);
+      const { data } = await axios.get(`/trending/${category}/day`);
       setTrending(data.results);
       // console.log(randomWallpaper);
     } catch (err) {
@@ -37,9 +38,9 @@ const Home = () => {
 
   // console.log(trending);
   useEffect(() => {
+    getTrending();
     !wallpaper && getWallpaper();
-    !trending && getTrending();
-  }, []);
+  }, [category]);
 
   return wallpaper && trending ? (
     <>
