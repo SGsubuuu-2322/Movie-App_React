@@ -6,9 +6,9 @@ const HorizentalCards = ({ data }) => {
   //   console.log(data);
   return (
     <div className="w-full  p-5">
-      <div className="mb-5">
+      <div className="mb-5 flex justify-between">
         <h1 className="text-3xl text-zinc-400 font-bold">Trending</h1>
-        <Dropdown />
+        <Dropdown title="Filter" options={["tv", "movies", "all"]} />
       </div>
 
       <div className="w-[100%] flex overflow-y-hidden">
