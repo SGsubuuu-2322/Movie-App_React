@@ -1,9 +1,9 @@
 // import React from 'react'
 
-const Dropdown = ({ title, options }) => {
+const Dropdown = ({ title, options, func }) => {
   return (
     <div className="select">
-      <select defaultValue="0" name="format" id="format">
+      <select defaultValue="0" name="format" id="format" onChange={func}>
         <option value="0" disabled>
           {title}
         </option>
