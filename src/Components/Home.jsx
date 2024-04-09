@@ -7,6 +7,7 @@ import axios from "../Utils/Axios";
 import Header from "./Templates/Header";
 import HorizentalCards from "./Templates/HorizentalCards";
 import Dropdown from "./Templates/Dropdown";
+import Loading from "./Loading";
 
 const Home = () => {
   document.title = "React_Movie-APP | Home";
@@ -61,7 +62,7 @@ const Home = () => {
       </div>
     </>
   ) : (
-    <h1>Loading</h1>
+    <Loading />
   );
 };
 
