@@ -2,9 +2,9 @@
 
 import { Link } from "react-router-dom";
 
-const Cards = ({ data }) => {
+const Cards = ({ data, title }) => {
   return (
-    <div className="flex flex-wrap w-full">
+    <div className="flex flex-wrap w-full px-[5%] bg-[#1f1e24]">
       {data.map((d, i) => (
         <Link className="w-[25vh] mr-[5%] mb-[5%]" key={i}>
           <img

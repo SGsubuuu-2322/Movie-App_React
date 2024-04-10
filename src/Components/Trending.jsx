@@ -6,18 +6,21 @@ import { useEffect, useState } from "react";
 import axios from "../Utils/Axios";
 import Loading from "./Loading";
 import Cards from "./Templates/Cards";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Trending = () => {
   const Navigate = useNavigate();
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");
-  const [trending, setTrending] = useState(null);
+  const [trending, setTrending] = useState([]);
+  const [page, setpage] = useState(1);
 
   const getTrending = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/${duration}`);
-      setTrending(data.results);
-      // console.log(randomWallpaper);
+      setTrending((prev) => [...prev, ...data.results]);
+      setpage(page + 1);
+      console.log(data);
     } catch (err) {
       console.log("Error: ", err);
     }
@@ -29,9 +32,9 @@ const Trending = () => {
     getTrending();
   }, [category, duration]);
 
-  return trending ? (
-    <div className="px-[3%] h-screen w-screen overflow-hidden overflow-y-auto">
-      <div className="w-full flex items-center justify-between">
+  return trending.length > 0 ? (
+    <div className="h-screen w-screen">
+      <div className="w-full flex items-center justify-between px-[5%]">
         <h1 className="w-[20%] text-2xl font-semibold text-zinc-400">
           <i
             onClick={() => Navigate(-1)}
@@ -55,7 +58,14 @@ const Trending = () => {
         </div>
       </div>
 
-      <Cards data={trending} />
+      <InfiniteScroll
+        dataLength={trending.length}
+        next={getTrending}
+        hasMore={true}
+        loader={<h1>...Loading</h1>}
+      >
+        <Cards data={trending} title={category} />
+      </InfiniteScroll>
     </div>
   ) : (
     <Loading />
