@@ -4,6 +4,8 @@ import TopNav from "./Templates/TopNav";
 import Dropdown from "./Templates/Dropdown";
 import { useEffect, useState } from "react";
 import axios from "../Utils/Axios";
+import Loading from "./Loading";
+import Cards from "./Templates/Cards";
 
 const Trending = () => {
   const Navigate = useNavigate();
@@ -27,8 +29,8 @@ const Trending = () => {
     getTrending();
   }, [category, duration]);
 
-  return (
-    <div className="px-[3%] h-screen w-screen">
+  return trending ? (
+    <div className="px-[3%] h-screen w-screen overflow-hidden overflow-y-auto">
       <div className="w-full flex items-center justify-between">
         <h1 className="w-[20%] text-2xl font-semibold text-zinc-400">
           <i
@@ -39,12 +41,24 @@ const Trending = () => {
         </h1>
         <div className="flex items-center w-[80%]">
           <TopNav />
-          <Dropdown title="category" options={["movie", "tv", "all"]} />
+          <Dropdown
+            title="category"
+            options={["movie", "tv", "all"]}
+            func={(e) => setCategory(e.target.value)}
+          />
           <div className="w-[2%]"></div>
-          <Dropdown title="duration" options={["week", "day"]} />
+          <Dropdown
+            title="duration"
+            options={["week", "day"]}
+            func={(e) => setDuration(e.target.value)}
+          />
         </div>
       </div>
+
+      <Cards data={trending} />
     </div>
+  ) : (
+    <Loading />
   );
 };
 
