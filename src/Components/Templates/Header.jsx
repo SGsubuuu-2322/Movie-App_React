@@ -7,7 +7,7 @@ const Header = ({ wallpaper }) => {
     <div
       style={{
         background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/original/${
-          wallpaper.backdrop_path || wallpaper.profile_path
+          wallpaper.backdrop_path || wallpaper.poster_path
         })`,
         backgroundPosition: "top 5%",
         backgroundSize: "cover",

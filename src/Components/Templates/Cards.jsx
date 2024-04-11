@@ -10,7 +10,7 @@ const Cards = ({ data, title }) => {
           <img
             className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
             src={`https://image.tmdb.org/t/p/original/${
-              d.profile_path || d.backdrop_path
+              d.poster_path || d.backdrop_path
             }`}
             alt=""
           />
