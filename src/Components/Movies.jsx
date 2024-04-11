@@ -25,7 +25,7 @@ const Movies = () => {
       } else {
         sethasMore(false);
       }
-    //   console.log(data);
+      //   console.log(data);
     } catch (err) {
       console.log("Error: ", err);
     }
@@ -54,7 +54,7 @@ const Movies = () => {
             onClick={() => Navigate(-1)}
             className="hover:text-[#6556cd] ri-arrow-left-line"
           ></i>
-          Movies
+          Movies<span className="ml-2 text-sm">({category})</span>
         </h1>
         <div className="flex items-center w-[80%]">
           <TopNav />
