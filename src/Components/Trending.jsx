@@ -9,6 +9,7 @@ import Cards from "./Templates/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Trending = () => {
+  document.title = "React_Movie-App | Trending ";
   const Navigate = useNavigate();
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");
@@ -16,7 +17,6 @@ const Trending = () => {
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
 
-  document.title = "React_Movie-App | Trending " + category.toUpperCase();
 
   const getTrending = async () => {
     try {
