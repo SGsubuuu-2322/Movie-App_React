@@ -4,7 +4,6 @@ import axios from "../Utils/Axios";
 
 import { useEffect, useState } from "react";
 import TopNav from "./Templates/TopNav";
-import Dropdown from "./Templates/Dropdown";
 import Cards from "./Templates/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -12,14 +11,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const People = () => {
   document.title = "React_Movie-App | Movies ";
   const Navigate = useNavigate();
-  const [category, setCategory] = useState("popular");
   const [person, setperson] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
 
   const getPerson = async () => {
     try {
-      const { data } = await axios.get(`/person/${category}?page=${page}`);
+      const { data } = await axios.get(`/person/popular?page=${page}`);
       if (data.results.length > 0) {
         setperson((prev) => [...prev, ...data.results]);
         setpage(page + 1);
@@ -46,7 +44,7 @@ const People = () => {
 
   useEffect(() => {
     refreshhandler();
-  }, [category]);
+  }, []);
 
   return person.length > 0 ? (
     <div className="h-screen w-screen">
@@ -56,7 +54,7 @@ const People = () => {
             onClick={() => Navigate(-1)}
             className="hover:text-[#6556cd] ri-arrow-left-line"
           ></i>
-          Tv Shows<span className="ml-2 text-sm">({category})</span>
+          Persons<span className="ml-2 text-sm">({"Popular"})</span>
         </h1>
         <div className="flex items-center w-[80%]">
           <TopNav />
@@ -70,7 +68,7 @@ const People = () => {
         hasMore={hasMore}
         loader={<h1>...Loading</h1>}
       >
-        <Cards data={person} title={category} />
+        <Cards data={person} />
       </InfiniteScroll>
     </div>
   ) : (
