@@ -53,6 +53,30 @@ const MovieDetails = () => {
           imdb
         </a>
       </nav>
+
+      <div className="w-full flex">
+        <div>
+          <img
+            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
+            src={`https://image.tmdb.org/t/p/original/${
+              info.detail.poster_path || info.detail.backdrop_path
+            }`}
+            alt=""
+          />
+
+          <div>
+            {info.watchProviders &&
+              info.watchProviders.flatrate &&
+              info.watchProviders.flatrate.map((wp, i) => (
+                <img
+                  key={i}
+                  src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
+                  alt=""
+                />
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
   ) : (
     <Loading />
