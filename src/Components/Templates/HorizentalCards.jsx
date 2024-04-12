@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // import Dropdown from "./Dropdown";
 
 const HorizentalCards = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="w-[100%] flex overflow-y-hidden mb-5 p-5">
       {data.map((d, i) => (

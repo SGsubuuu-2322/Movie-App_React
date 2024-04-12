@@ -1,8 +1,18 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { asyncLoadMovie } from "../Store/actions/MovieActions";
 
 const MovieDetails = () => {
-  return (
-    <div>MovieDetails</div>
-  )
-}
+  const Dispatch = useDispatch();
 
-export default MovieDetails
+  const { id } = useParams();
+
+  useEffect(() => {
+    Dispatch(asyncLoadMovie(id));
+  }, []);
+
+  return <div>MovieDetails</div>;
+};
+
+export default MovieDetails;

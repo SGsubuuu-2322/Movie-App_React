@@ -24,7 +24,12 @@ const Header = ({ wallpaper }) => {
       </h1>
       <p className="text-white w-[70%] mt-3 mb-3">
         {wallpaper.overview.slice(0, 200)}...
-        <Link className="text-blue-600">more</Link>
+        <Link
+          to={`/${wallpaper.media_type}/details/${wallpaper.id}`}
+          className="text-blue-600"
+        >
+          more
+        </Link>
       </p>
       <p className="text-white">
         <i className="text-yellow-500 ri-megaphone-fill"></i>
