@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { asyncLoadMovie } from "../Store/actions/MovieActions";
+import { asyncLoadMovie, unloadMovie } from "../Store/actions/MovieActions";
 
 const MovieDetails = () => {
   const Dispatch = useDispatch();
@@ -10,6 +10,10 @@ const MovieDetails = () => {
 
   useEffect(() => {
     Dispatch(asyncLoadMovie(id));
+
+    return () => {
+      Dispatch(unloadMovie());
+    };
   }, []);
 
   return <div>MovieDetails</div>;

@@ -16,11 +16,12 @@ export const asyncLoadMovie = (id) => async (Dispatch, getState) => {
       externalId: externalId.data,
       recommendations: recommendations.data.results,
       similar: similar.data.results,
-      videos: videos.data,
+      videos: videos.data.results.find((m) => m.type === "Trailer"),
       watchProviders: watchProviders.data.results.IN,
     };
 
     console.log(theUltimateDetails);
+    Dispatch(loadMovie(theUltimateDetails));
   } catch (err) {
     console.log("Error: ", err);
   }
