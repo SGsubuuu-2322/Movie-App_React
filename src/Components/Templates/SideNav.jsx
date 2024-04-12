@@ -37,7 +37,7 @@ const SideNav = () => {
           Movies
         </Link>
         <Link
-          to="/tv-shows"
+          to="/tv"
           className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-2"
         >
           <i className="mr-2 ri-tv-2-fill"></i>

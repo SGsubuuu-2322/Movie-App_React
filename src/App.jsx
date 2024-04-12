@@ -18,15 +18,12 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />
         <Route path="/popular" element={<Popular />} />
-        <Route path="/movies" element={<Movies />}>
-          <Route path="/movies/details/:id" element={<MovieDetails />} />
-        </Route>
-        <Route path="/tv-shows" element={<TvShows />}>
-          <Route path="/tv-shows/details/:id" element={<TvDetails />} />
-        </Route>
-        <Route path="/person" element={<People />}>
-          <Route path="/person/details/:id" element={<PersonDetails />} />
-        </Route>
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movie/details/:id" element={<MovieDetails />} />
+        <Route path="/tv" element={<TvShows />} />
+        <Route path="/tv/details/:id" element={<TvDetails />} />
+        <Route path="/person" element={<People />} />
+        <Route path="/person/details/:id" element={<PersonDetails />} />
       </Routes>
     </div>
   );
