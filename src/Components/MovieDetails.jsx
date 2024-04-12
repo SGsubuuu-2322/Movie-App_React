@@ -55,26 +55,47 @@ const MovieDetails = () => {
       </nav>
 
       <div className="w-full flex">
-        <div>
-          <img
-            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
-            src={`https://image.tmdb.org/t/p/original/${
-              info.detail.poster_path || info.detail.backdrop_path
-            }`}
-            alt=""
-          />
+        <img
+          className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
+          src={`https://image.tmdb.org/t/p/original/${
+            info.detail.poster_path || info.detail.backdrop_path
+          }`}
+          alt=""
+        />
+      </div>
 
-          <div>
-            {info.watchProviders &&
-              info.watchProviders.flatrate &&
-              info.watchProviders.flatrate.map((wp, i) => (
-                <img
-                  key={i}
-                  src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
-                  alt=""
-                />
-              ))}
-          </div>
+      <div>
+        <div className="mt-3">
+          {info.watchProviders &&
+            info.watchProviders.flatrate &&
+            info.watchProviders.flatrate.map((wp, i) => (
+              <img
+                className="w-[5vh] h-[5vh] rounded-md object-cover"
+                key={i}
+                src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
+                alt=""
+              />
+            ))}
+          {info.watchProviders &&
+            info.watchProviders.rent &&
+            info.watchProviders.rent.map((wp, i) => (
+              <img
+                className="w-[5vh] h-[5vh] rounded-md object-cover"
+                key={i}
+                src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
+                alt=""
+              />
+            ))}
+          {info.watchProviders &&
+            info.watchProviders.buy &&
+            info.watchProviders.buy.map((wp, i) => (
+              <img
+                className="w-[5vh] h-[5vh] rounded-md object-cover"
+                key={i}
+                src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
+                alt=""
+              />
+            ))}
         </div>
       </div>
     </div>
