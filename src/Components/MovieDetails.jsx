@@ -64,11 +64,11 @@ const MovieDetails = () => {
         />
       </div>
 
-      <div>
-        <div className="mt-3">
-          {info.watchProviders &&
-            info.watchProviders.flatrate &&
-            info.watchProviders.flatrate.map((wp, i) => (
+      <div className="w-[80%] flex flex-col gap-y-5 mt-5">
+        {info.watchProviders && info.watchProviders.flatrate && (
+          <div className="flex items-center text-white gap-x-5">
+            <h1>Available on platforms: </h1>
+            {info.watchProviders.flatrate.map((wp, i) => (
               <img
                 className="w-[5vh] h-[5vh] rounded-md object-cover"
                 key={i}
@@ -76,9 +76,12 @@ const MovieDetails = () => {
                 alt=""
               />
             ))}
-          {info.watchProviders &&
-            info.watchProviders.rent &&
-            info.watchProviders.rent.map((wp, i) => (
+          </div>
+        )}
+        {info.watchProviders && info.watchProviders.rent && (
+          <div className="flex items-center text-white gap-x-5">
+            <h1>Available on rent: </h1>
+            {info.watchProviders.rent.map((wp, i) => (
               <img
                 className="w-[5vh] h-[5vh] rounded-md object-cover"
                 key={i}
@@ -86,9 +89,12 @@ const MovieDetails = () => {
                 alt=""
               />
             ))}
-          {info.watchProviders &&
-            info.watchProviders.buy &&
-            info.watchProviders.buy.map((wp, i) => (
+          </div>
+        )}
+        {info.watchProviders && info.watchProviders.buy && (
+          <div className="flex items-center text-white gap-x-5">
+            <h1>Available to buy: </h1>
+            {info.watchProviders.buy.map((wp, i) => (
               <img
                 className="w-[5vh] h-[5vh] rounded-md object-cover"
                 key={i}
@@ -96,7 +102,8 @@ const MovieDetails = () => {
                 alt=""
               />
             ))}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   ) : (
