@@ -67,9 +67,10 @@ const MovieDetails = () => {
       <div className="w-[80%] flex flex-col gap-y-5 mt-5">
         {info.watchProviders && info.watchProviders.flatrate && (
           <div className="flex items-center text-white gap-x-5">
-            <h1>Available on platforms: </h1>
+            <h1>Available on Platforms: </h1>
             {info.watchProviders.flatrate.map((wp, i) => (
               <img
+                title={wp.provider_name}
                 className="w-[5vh] h-[5vh] rounded-md object-cover"
                 key={i}
                 src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
@@ -80,9 +81,10 @@ const MovieDetails = () => {
         )}
         {info.watchProviders && info.watchProviders.rent && (
           <div className="flex items-center text-white gap-x-5">
-            <h1>Available on rent: </h1>
+            <h1>Available on Rent: </h1>
             {info.watchProviders.rent.map((wp, i) => (
               <img
+                title={wp.provider_name}
                 className="w-[5vh] h-[5vh] rounded-md object-cover"
                 key={i}
                 src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
@@ -93,9 +95,10 @@ const MovieDetails = () => {
         )}
         {info.watchProviders && info.watchProviders.buy && (
           <div className="flex items-center text-white gap-x-5">
-            <h1>Available to buy: </h1>
+            <h1>Available to Buy: </h1>
             {info.watchProviders.buy.map((wp, i) => (
               <img
+                title={wp.provider_name}
                 className="w-[5vh] h-[5vh] rounded-md object-cover"
                 key={i}
                 src={`https://image.tmdb.org/t/p/original/${wp.logo_path}`}
