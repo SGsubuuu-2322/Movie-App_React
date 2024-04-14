@@ -62,6 +62,31 @@ const MovieDetails = () => {
           }`}
           alt=""
         />
+
+        <div className="ml-20">
+          <h1 className="text-5xl font-black text-white">
+            {info.detail.name ||
+              info.detail.original_name ||
+              info.detail.title ||
+              info.detail.original_title}
+
+            <small className="text-2xl font-bold text-zinc-300">
+              ({info.detail.release_date.split("-")[0]})
+            </small>
+          </h1>
+
+          <div className=" mt-3 mb-10 flex items-center gap-x-3 text-white">
+            <span className="text-xl text-white font-semibold h-[6vh] w-[6vh] flex justify-center items-center bg-yellow-400 rounded-full">
+              {(info.detail.vote_average * 10).toFixed()} <sup>%</sup>
+            </span>
+            <h1 className="w-[60px] text-2xl font-semibold leading-6">
+              User Score
+            </h1>
+            <h1>{info.detail.release_date}</h1>
+            <h1>{info.detail.genres.map((g) => g.name).join(",")}</h1>
+            <h1>{info.detail.runtime}min</h1>
+          </div>
+        </div>
       </div>
 
       <div className="w-[80%] flex flex-col gap-y-5 mt-5">
