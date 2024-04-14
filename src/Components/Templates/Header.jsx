@@ -9,7 +9,7 @@ const Header = ({ wallpaper }) => {
         background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/original/${
           wallpaper.backdrop_path || wallpaper.poster_path
         })`,
-        backgroundPosition: "top 5%",
+        backgroundPosition: "top 1%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}

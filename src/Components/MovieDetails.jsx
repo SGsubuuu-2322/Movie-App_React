@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { asyncLoadMovie, unloadMovie } from "../Store/actions/MovieActions";
+import HorizentalCards from "./Templates/HorizentalCards";
 
 import Loading from "../Components/Loading";
 
@@ -19,7 +20,7 @@ const MovieDetails = () => {
     return () => {
       Dispatch(unloadMovie());
     };
-  }, []);
+  }, [id]);
 
   return info ? (
     <div
@@ -28,8 +29,9 @@ const MovieDetails = () => {
         backgroundPosition: "top 5%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        overflowY: "hidden",
       }}
-      className="h-screen w-screen pl-[5%] pr-[2%]"
+      className="h-[170vh] w-screen px-[3%]"
     >
       <nav className="h-[10vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
         <Link
@@ -152,6 +154,17 @@ const MovieDetails = () => {
           </div>
         )}
       </div>
+
+      <hr className="mt-10 mb-5 border-none bg-zinc-500 h-[2px]" />
+
+      <h1 className="text-white text-3xl font-bold">
+        Recommendations & Similar Stuffs
+      </h1>
+      <HorizentalCards
+        data={
+          info.recommendations.length > 0 ? info.recommendations : info.similar
+        }
+      />
     </div>
   ) : (
     <Loading />
