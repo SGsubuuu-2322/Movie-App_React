@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+  Link,
+  useLocation,
+  Outlet,
+} from "react-router-dom";
 import { asyncLoadMovie, unloadMovie } from "../Store/actions/MovieActions";
 import HorizentalCards from "./Templates/HorizentalCards";
 
@@ -29,9 +35,8 @@ const MovieDetails = () => {
         backgroundPosition: "top 5%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        overflowY: "hidden",
       }}
-      className="h-[170vh] w-screen px-[3%]"
+      className="relative h-[170vh] w-screen px-[3%]"
     >
       <nav className="h-[10vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
         <Link
@@ -102,7 +107,7 @@ const MovieDetails = () => {
 
           <Link
             className="py-3 px-5 rounded-lg bg-[#6556cd]"
-            to={`/${pathname}/trailer`}
+            to={`${pathname}/trailer`}
           >
             <i className="text-xl ri-play-fill"></i>
             Play Trailer
@@ -165,6 +170,7 @@ const MovieDetails = () => {
           info.recommendations.length > 0 ? info.recommendations : info.similar
         }
       />
+      <Outlet />
     </div>
   ) : (
     <Loading />
