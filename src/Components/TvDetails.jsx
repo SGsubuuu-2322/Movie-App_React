@@ -11,6 +11,7 @@ import HorizentalCards from "./Templates/HorizentalCards";
 
 import Loading from "../Components/Loading";
 import { asyncLoadTv, unloadTv } from "../Store/actions/TvActions";
+import noImage from "../../public/noImage.jpg";
 
 const TvDetails = () => {
   const { pathname } = useLocation();
@@ -35,7 +36,7 @@ const TvDetails = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="relative h-[170vh] w-screen px-[3%]"
+      className="relative h-[220vh] w-screen px-[3%]"
     >
       <nav className="h-[10vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
         <Link
@@ -89,7 +90,7 @@ const TvDetails = () => {
             <h1 className="w-[60px] text-2xl font-semibold leading-6">
               User Score
             </h1>
-            <h1>{info.detail.release_date}</h1>
+            <h1>{info.detail.first_air_date}</h1>
             <h1>{info.detail.genres.map((g) => g.name).join(",")}</h1>
             <h1>{info.detail.runtime}min</h1>
           </div>
@@ -156,6 +157,38 @@ const TvDetails = () => {
               />
             ))}
           </div>
+        )}
+      </div>
+
+      <hr className="mt-10 mb-5 border-none bg-zinc-500 h-[2px]" />
+
+      <h1 className="text-white text-3xl font-bold">Seasons</h1>
+      <div className="w-[100%] flex overflow-y-hidden mb-5 p-5">
+        {info.detail.seasons.length > 0 ? (
+          info.detail.seasons.map((s, i) => (
+            <div key={i} className="w-[15vh] mr-[7%]">
+              <img
+                className="w-full object-cover h-[40vh] min-w-[12vw]"
+                src={
+                  s.backdrop_path || s.poster_path
+                    ? `https://image.tmdb.org/t/p/original/${
+                        s.backdrop_path || s.poster_path
+                      }`
+                    : noImage
+                }
+                alt=""
+              />
+
+              <h1 className=" mt-3 text-xl font-semibold text-zinc-200">
+                {" "}
+                {s.name || s.original_name || s.title || s.original_title}
+              </h1>
+            </div>
+          ))
+        ) : (
+          <h1 className="text-3xl text-white font-black text-center mt-5">
+            Nothing to show...
+          </h1>
         )}
       </div>
 
