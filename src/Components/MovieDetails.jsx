@@ -28,7 +28,7 @@ const MovieDetails = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="h-screen w-screen px-[10%]"
+      className="h-screen w-screen pl-[5%] pr-[2%]"
     >
       <nav className="h-[10vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
         <Link
@@ -56,14 +56,14 @@ const MovieDetails = () => {
 
       <div className="w-full flex">
         <img
-          className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
+          className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[60vh] object-cover"
           src={`https://image.tmdb.org/t/p/original/${
             info.detail.poster_path || info.detail.backdrop_path
           }`}
           alt=""
         />
 
-        <div className="ml-20 text-white">
+        <div className="ml-[5%] text-white">
           <h1 className="text-5xl font-black">
             {info.detail.name ||
               info.detail.original_name ||
@@ -91,12 +91,15 @@ const MovieDetails = () => {
             {info.detail.tagline}
           </h1>
 
-          <h1 className="text-2xl mb-3 mt-5">Overview</h1>
-          <p>{info.detail.overview}</p>
+          <h1 className="text-xl mb-1 mt-2">Overview</h1>
+          <p className="text-xs">{info.detail.overview}</p>
+
+          <h1 className="text-xl mb-3 mt-5">Movie Translated</h1>
+          <p className="text-xs">{info.translations.join(", ")}</p>
         </div>
       </div>
 
-      <div className="w-[80%] flex flex-col gap-y-5 mt-5">
+      <div className="w-[80%] flex flex-col gap-y-5 mt-3">
         {info.watchProviders && info.watchProviders.flatrate && (
           <div className="flex items-center text-white gap-x-5">
             <h1>Available on Platforms: </h1>
