@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { asyncLoadMovie, unloadMovie } from "../Store/actions/MovieActions";
 
 import Loading from "../Components/Loading";
 
 const MovieDetails = () => {
+  const { pathname } = useLocation();
   const Navigate = useNavigate();
   const Dispatch = useDispatch();
 
@@ -95,7 +96,15 @@ const MovieDetails = () => {
           <p className="text-xs">{info.detail.overview}</p>
 
           <h1 className="text-xl mb-3 mt-5">Movie Translated</h1>
-          <p className="text-xs">{info.translations.join(", ")}</p>
+          <p className="text-xs mb-7">{info.translations.join(", ")}</p>
+
+          <Link
+            className="py-3 px-5 rounded-lg bg-[#6556cd]"
+            to={`/${pathname}/trailer`}
+          >
+            <i className="text-xl ri-play-fill"></i>
+            Play Trailer
+          </Link>
         </div>
       </div>
 
