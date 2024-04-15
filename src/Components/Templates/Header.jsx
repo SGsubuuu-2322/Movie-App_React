@@ -37,7 +37,10 @@ const Header = ({ wallpaper }) => {
         <i className="text-yellow-500 ml-5 ri-album-fill"></i>
         {wallpaper.media_type.toUpperCase()}
       </p>
-      <Link className="bg-[#6556cd] mt-5 text-white rounded-lg p-2">
+      <Link
+        to={`/${wallpaper.media_type}/details/${wallpaper.id}/trailer`}
+        className="bg-[#6556cd] mt-5 text-white rounded-lg p-2"
+      >
         Watch Trailer
       </Link>
     </div>
