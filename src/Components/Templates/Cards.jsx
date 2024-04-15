@@ -1,6 +1,7 @@
 // import React from 'react'
 
 import { Link } from "react-router-dom";
+import noImage from "/noImage.jpg";
 
 const Cards = ({ data, title }) => {
   // console.log(title);
@@ -14,9 +15,13 @@ const Cards = ({ data, title }) => {
         >
           <img
             className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
-            src={`https://image.tmdb.org/t/p/original/${
+            src={
               d.poster_path || d.backdrop_path || d.profile_path
-            }`}
+                ? `https://image.tmdb.org/t/p/original/${
+                    d.poster_path || d.backdrop_path || d.profile_path
+                  }`
+                : noImage
+            }
             alt=""
           />
           <h1 className="text-2xl text-zinc-300 font-semibold mt-3">
