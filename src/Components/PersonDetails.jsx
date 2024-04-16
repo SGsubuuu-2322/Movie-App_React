@@ -38,10 +38,10 @@ const PersonDetails = () => {
           className="hover:text-[#6556cd] ri-arrow-left-line"
         ></Link>
       </nav>
-      <div className="w-full flex flex-col">
-        <div className="w-[20%]">
+      <div className="w-full flex">
+        <div className="w-[15%]">
           <img
-            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
+            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] w-full  h-[40vh] object-cover"
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
           />
@@ -107,6 +107,14 @@ const PersonDetails = () => {
           <h1 className=" text-zinc-400 mt-0">
             {info.detail.also_known_as.join(", ")}
           </h1>
+        </div>
+
+        <div className="w-[85%] ml-[3%]">
+          <h1 className="text-2xl text-zinc-400 font-semibold my-2">
+            {info.detail.name}
+          </h1>
+          <h1 className="text-lg text-zinc-400 font-semibold">Known For:</h1>
+          <h1 className=" text-zinc-400">{info.detail.known_for_department}</h1>
         </div>
       </div>
     </div>
