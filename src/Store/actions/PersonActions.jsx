@@ -2,11 +2,11 @@ export { unloadPerson } from "../reducers/PersonSlice";
 import axios from "../../Utils/Axios";
 import { loadPerson } from "../reducers/PersonSlice";
 
-export const asyncLoadMovie = (id) => async (Dispatch) => {
+export const asyncLoadPerson = (id) => async (Dispatch) => {
   try {
     const detail = await axios.get(`/person/${id}`);
     const externalId = await axios.get(`/person/${id}/external_ids`);
-    const combinedCredits = await axios.get(`/person/${id}/combine_credits`);
+    const combinedCredits = await axios.get(`/person/${id}/combined_credits`);
     const movieCredits = await axios.get(`/person/${id}/movie_credits`);
     const tvCredits = await axios.get(`/person/${id}/tv_credits`);
 
