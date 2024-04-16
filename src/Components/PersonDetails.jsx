@@ -31,37 +31,82 @@ const PersonDetails = () => {
   }, [id]);
 
   return info ? (
-    <div className="px-[10%] w-screen flex flex-col">
-      <nav className="h-[10vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
+    <div className="px-[5%] w-screen flex flex-col bg-[#1f1e24] h-[120vh]">
+      <nav className="h-[5vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
         <Link
           onClick={() => Navigate(-1)}
           className="hover:text-[#6556cd] ri-arrow-left-line"
         ></Link>
-
-        <a target="_blank" href={info.detail.homepage}>
-          <i className="hover:text-[#6556cd] ri-external-link-fill"></i>
-        </a>
-        <a
-          target="_blank"
-          href={`https://www.wikidata.org/wiki/${info.externalId.wikidata_id}`}
-        >
-          <i className="hover:text-[#6556cd] ri-earth-fill"></i>
-        </a>
-        <a
-          target="_blank"
-          href={`https://www.imdb.com/title/${info.externalId.imdb_id}/`}
-          className="hover:text-[#6556cd]"
-        >
-          imdb
-        </a>
       </nav>
       <div className="w-full flex flex-col">
         <div className="w-[20%]">
           <img
-            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[60vh] object-cover"
+            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[40vh] object-cover"
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
           />
+
+          <hr className="mt-8 mb-5 border-none bg-zinc-500 h-[2px]" />
+
+          <div className="text-2xl text-white flex gap-x-5">
+            <a
+              target="_blank"
+              href={`https://www.wikidata.org/wiki/${info.externalId.wikidata_id}`}
+            >
+              <i className="hover:text-[#6556cd] ri-earth-fill"></i>
+            </a>
+            <a
+              target="_blank"
+              href={`https://www.facebook.com/${info.externalId.facebook_id}`}
+            >
+              <i className="hover:text-[#6556cd] ri-facebook-circle-fill"></i>
+            </a>
+            <a
+              target="_blank"
+              href={`https://www.instagram.com/${info.externalId.instagram_id}`}
+            >
+              <i className="hover:text-[#6556cd] ri-instagram-fill"></i>
+            </a>
+            <a
+              target="_blank"
+              href={`https://www.twitter.com/${info.externalId.twitter_id}`}
+            >
+              <i className="hover:text-[#6556cd] ri-twitter-x-fill"></i>
+            </a>
+          </div>
+
+          <h1 className="text-2xl text-zinc-400 font-semibold my-2">
+            Personal Info:
+          </h1>
+          <h1 className="text-lg text-zinc-400 font-semibold">Known For:</h1>
+          <h1 className=" text-zinc-400">{info.detail.known_for_department}</h1>
+
+          <h1 className="text-lg text-zinc-400 font-semibold mt-1">Gender:</h1>
+          <h1 className=" text-zinc-400">
+            {info.detail.gender === 2 ? "Male" : "Female"}
+          </h1>
+
+          <h1 className="text-lg text-zinc-400 font-semibold mt-1">
+            Birthday:
+          </h1>
+          <h1 className=" text-zinc-400">{info.detail.birthday}</h1>
+
+          <h1 className="text-lg text-zinc-400 font-semibold">Deathday:</h1>
+          <h1 className=" text-zinc-400 mt-0">
+            {info.detail.deathday ? info.detail.deathday : "Still Alive"}
+          </h1>
+
+          <h1 className="text-lg text-zinc-400 font-semibold">
+            Place of Birth:
+          </h1>
+          <h1 className=" text-zinc-400 mt-0">{info.detail.place_of_birth}</h1>
+
+          <h1 className="text-lg text-zinc-400 font-semibold">
+            Also Known as:
+          </h1>
+          <h1 className=" text-zinc-400 mt-0">
+            {info.detail.also_known_as.join(", ")}
+          </h1>
         </div>
       </div>
     </div>
