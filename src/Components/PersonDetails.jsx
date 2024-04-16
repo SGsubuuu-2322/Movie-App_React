@@ -55,6 +55,15 @@ const PersonDetails = () => {
           imdb
         </a>
       </nav>
+      <div className="w-full flex flex-col">
+        <div className="w-[20%]">
+          <img
+            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.6)] h-[60vh] object-cover"
+            src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
+            alt=""
+          />
+        </div>
+      </div>
     </div>
   ) : (
     <Loading />
