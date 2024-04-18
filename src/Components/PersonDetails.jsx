@@ -31,7 +31,7 @@ const PersonDetails = () => {
   }, [id]);
 
   return info ? (
-    <div className="px-[5%] w-screen flex flex-col bg-[#1f1e24] h-[120vh]">
+    <div className="px-[5%] w-screen flex flex-col bg-[#1f1e24] h-[150vh]">
       <nav className="h-[5vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
         <Link
           onClick={() => Navigate(-1)}
@@ -110,11 +110,11 @@ const PersonDetails = () => {
         </div>
 
         <div className="w-[85%] ml-[3%]">
-          <h1 className="text-2xl text-zinc-400 font-semibold my-2">
+          <h1 className="text-6xl text-zinc-400 font-black my-3">
             {info.detail.name}
           </h1>
-          <h1 className="text-lg text-zinc-400 font-semibold">Known For:</h1>
-          <h1 className=" text-zinc-400">{info.detail.known_for_department}</h1>
+          <h1 className="text-xl text-zinc-400 font-semibold">Biography:</h1>
+          <p className="text-zinc-400">{info.detail.biography}</p>
         </div>
       </div>
     </div>
