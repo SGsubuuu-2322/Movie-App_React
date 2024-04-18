@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   useParams,
@@ -11,11 +11,13 @@ import { asyncLoadPerson, unloadPerson } from "../Store/actions/PersonActions";
 import HorizentalCards from "./Templates/HorizentalCards";
 
 import Loading from "../Components/Loading";
+import Dropdown from "../Components/Templates/Dropdown";
 
 const PersonDetails = () => {
   const { pathname } = useLocation();
   const Navigate = useNavigate();
   const Dispatch = useDispatch();
+  const [category, setcategory] = useState("movie");
 
   const { id } = useParams();
   const { info } = useSelector((state) => state.person);
@@ -120,6 +122,16 @@ const PersonDetails = () => {
             Known For
           </h1>
           <HorizentalCards data={info.combineCredits.cast} />
+
+          <div className="w-full flex justify-between">
+            <h1 className="mt-3 text-zinc-400 font-semibold text-xl">Acting</h1>
+
+            <Dropdown
+              title="Category"
+              options={["movie", "tv"]}
+              func={(e) => setcategory(e.target.value)}
+            />
+          </div>
         </div>
       </div>
     </div>
