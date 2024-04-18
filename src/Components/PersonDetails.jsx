@@ -113,8 +113,13 @@ const PersonDetails = () => {
           <h1 className="text-6xl text-zinc-400 font-black my-3">
             {info.detail.name}
           </h1>
-          <h1 className="text-xl text-zinc-400 font-semibold">Biography:</h1>
+          <h1 className="text-xl text-zinc-400 font-semibold">Biography</h1>
           <p className="text-zinc-400">{info.detail.biography}</p>
+
+          <h1 className="mt-3 text-lg text-zinc-400 font-semibold">
+            Known For
+          </h1>
+          <HorizentalCards data={info.combineCredits.cast} />
         </div>
       </div>
     </div>
