@@ -33,7 +33,7 @@ const PersonDetails = () => {
   }, [id]);
 
   return info ? (
-    <div className="px-[5%] w-screen flex flex-col bg-[#1f1e24] h-[150vh]">
+    <div className="px-[5%] w-screen flex flex-col bg-[#1f1e24] h-[170vh]">
       <nav className="h-[5vh] w-full text-zinc-200 flex items-center gap-10 text-2xl">
         <Link
           onClick={() => Navigate(-1)}
@@ -131,6 +131,26 @@ const PersonDetails = () => {
               options={["movie", "tv"]}
               func={(e) => setcategory(e.target.value)}
             />
+          </div>
+
+          <div className="p-5 text-zinc-400 list-disc w-full h-[50vh] shadow-xl border-2 border-zinc-700 shadow-[rgba(255,255,255,.3)] overflow-x-hidden overflow-y-auto mt-5">
+            {info[category + "Credits"].cast.map((ci, i) => (
+              <li
+                key={i}
+                className="hover:text-white p-5 rounded hover:bg-[#1d1d1d] duration-300 cursor-pointer"
+              >
+                <Link to={`/${category}/details/${ci.id}`} className="">
+                  <span>
+                    {" "}
+                    {ci.name ||
+                      ci.original_name ||
+                      ci.title ||
+                      ci.original_title}
+                  </span>
+                  <span className="block">{ci.character}</span>
+                </Link>
+              </li>
+            ))}
           </div>
         </div>
       </div>
