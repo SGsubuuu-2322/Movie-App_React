@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  useParams,
-  useNavigate,
-  Link,
-  useLocation,
-  Outlet,
-} from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { asyncLoadPerson, unloadPerson } from "../Store/actions/PersonActions";
 import HorizentalCards from "./Templates/HorizentalCards";
 
@@ -14,15 +8,12 @@ import Loading from "../Components/Loading";
 import Dropdown from "../Components/Templates/Dropdown";
 
 const PersonDetails = () => {
-  const { pathname } = useLocation();
   const Navigate = useNavigate();
   const Dispatch = useDispatch();
   const [category, setcategory] = useState("movie");
 
   const { id } = useParams();
   const { info } = useSelector((state) => state.person);
-
-  console.log(info);
 
   useEffect(() => {
     Dispatch(asyncLoadPerson(id));
@@ -147,7 +138,9 @@ const PersonDetails = () => {
                       ci.title ||
                       ci.original_title}
                   </span>
-                  <span className="block">{ci.character}</span>
+                  <span className="block ml-5 mt-2">
+                    {ci.character && `Character Name : ${ci.character}`}
+                  </span>
                 </Link>
               </li>
             ))}
