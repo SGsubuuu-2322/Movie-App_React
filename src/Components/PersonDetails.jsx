@@ -71,10 +71,10 @@ const PersonDetails = () => {
           <h1 className="text-2xl text-zinc-400 font-semibold my-2">
             Personal Info:
           </h1>
-          <h1 className="text-lg text-zinc-400 font-semibold">Known For:</h1>
+          <h1 className="text-lg text-zinc-400 font-semibold">Known For</h1>
           <h1 className=" text-zinc-400">{info.detail.known_for_department}</h1>
 
-          <h1 className="text-lg text-zinc-400 font-semibold mt-1">Gender:</h1>
+          <h1 className="text-lg text-zinc-400 font-semibold mt-1">Gender</h1>
           <h1 className=" text-zinc-400">
             {info.detail.gender === 2 ? "Male" : "Female"}
           </h1>
@@ -84,18 +84,18 @@ const PersonDetails = () => {
           </h1>
           <h1 className=" text-zinc-400">{info.detail.birthday}</h1>
 
-          <h1 className="text-lg text-zinc-400 font-semibold">Deathday:</h1>
+          <h1 className="text-lg text-zinc-400 font-semibold">Deathday</h1>
           <h1 className=" text-zinc-400 mt-0">
             {info.detail.deathday ? info.detail.deathday : "Still Alive"}
           </h1>
 
           <h1 className="text-lg text-zinc-400 font-semibold">
-            Place of Birth:
+            Place of Birth
           </h1>
           <h1 className=" text-zinc-400 mt-0">{info.detail.place_of_birth}</h1>
 
           <h1 className="text-lg text-zinc-400 font-semibold">
-            Also Known as:
+            Also Known as
           </h1>
           <h1 className=" text-zinc-400 mt-0">
             {info.detail.also_known_as.join(", ")}
