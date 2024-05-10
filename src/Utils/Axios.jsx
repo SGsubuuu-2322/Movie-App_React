@@ -1,5 +1,7 @@
+// Customized the axios with base url and outsourced it...
 import axios from "axios";
 
+// Customized it with baseURL and headers...
 const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   headers: {
@@ -9,4 +11,5 @@ const instance = axios.create({
   },
 });
 
+// Exporting it...
 export default instance;
