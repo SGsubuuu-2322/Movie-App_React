@@ -28,12 +28,15 @@ const TopNav = () => {
   };
 
 
-  
+  // This is useEffect hook used for calling getSearches function whenever query changes...
   useEffect(() => {
     getSearches();
   }, [query]);
 
+
+  // This is jsx return to showcase our TopNav component....
   return (
+    // This is the search bar....
     <div className="z-[100] relative w-[80%] h-[10vh] mx-auto flex items-center">
       <i className="text-3xl text-zinc-400 ri-search-line"></i>
       <input
@@ -50,6 +53,7 @@ const TopNav = () => {
         ></i>
       )}
 
+{/* This is search result showcase section.... */}
       <div className="bg-zinc-200 w-[50%] max-h-[50vh] absolute top-[95%] left-[8%] overflow-auto">
         {searches &&
           searches.map((s, i) => (
@@ -79,4 +83,6 @@ const TopNav = () => {
   );
 };
 
+
+// This is exporting our TopNav component...
 export default TopNav;
