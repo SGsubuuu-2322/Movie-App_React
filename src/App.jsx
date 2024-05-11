@@ -13,11 +13,11 @@ import PersonDetails from "./Components/PersonDetails";
 import Trailer from "./Components/Templates/Trailer";
 import Notfound from "./Components/Notfound";
 
-
 // This is our app functional component for our root app
 const App = () => {
   return (
     <div className="bg-[#1f1e24] h-screen w-screen flex">
+      {/* These are the routes for the different pages... */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />

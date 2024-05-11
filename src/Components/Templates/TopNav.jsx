@@ -1,14 +1,22 @@
 // import React from 'react'
 
+// This is the top nav component of our app's home page...
+
+// And these are some few imports for our app...
 import axios from "../../Utils/Axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import noImage from "/noImage.jpg";
 
+
+// This is our topnav functional component definition...
 const TopNav = () => {
+
+  // And these are two state variables for our component...
   const [query, setQuery] = useState("");
   const [searches, setsearches] = useState(null);
 
+  // And this is the getSearches function for searching the keyword from the tmdb api
   const getSearches = async () => {
     try {
       const { data } = await axios.get(`/search/multi?query=${query}`);
@@ -19,6 +27,8 @@ const TopNav = () => {
     }
   };
 
+
+  
   useEffect(() => {
     getSearches();
   }, [query]);
