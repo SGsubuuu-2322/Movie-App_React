@@ -22,6 +22,8 @@ const Home = () => {
   const [trending, setTrending] = useState(null);
   const [category, setcategory] = useState("all");
 
+
+  // This function is responsible for fetching all day trending movie images and randomly setting into wallpaper for header part....
   const getWallpaper = async () => {
     try {
       const { data } = await axios.get(`/trending/all/day`);
@@ -34,6 +36,8 @@ const Home = () => {
     }
   };
 
+
+  // This function is responsible fetching all day trending movie details...
   const getTrending = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/day`);
@@ -45,11 +49,13 @@ const Home = () => {
   };
 
   // console.log(trending);
+  // This is the useEffect hook in react for calling the getTrending() function and getWallpaper 
   useEffect(() => {
     getTrending();
     !wallpaper && getWallpaper();
   }, [category]);
 
+  // Returning the jsx for Home component
   return wallpaper && trending ? (
     <>
       <SideNav />
@@ -72,4 +78,5 @@ const Home = () => {
   );
 };
 
+// Exporting it for further usecases....
 export default Home;
