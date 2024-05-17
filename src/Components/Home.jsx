@@ -1,5 +1,6 @@
 // import React from 'react'
 
+// These are relevant imports for the home page component 
 import { useEffect, useState } from "react";
 import SideNav from "./Templates/SideNav";
 import TopNav from "./Templates/TopNav";
@@ -9,9 +10,14 @@ import HorizentalCards from "./Templates/HorizentalCards";
 import Dropdown from "./Templates/Dropdown";
 import Loading from "./Loading";
 
+
+// This is the functional component of home page
 const Home = () => {
+  // This is title for home page...
   document.title = "React_Movie-APP | Home";
 
+
+  // These are some state data for our app...
   const [wallpaper, setWallpaper] = useState(null);
   const [trending, setTrending] = useState(null);
   const [category, setcategory] = useState("all");
